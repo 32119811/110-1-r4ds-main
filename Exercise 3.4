@@ -1,0 +1,31 @@
+Exercise 3.4 How do you add the new born if you use JohnsFamilyCopy3$children[3] <-
+
+JohnsFamilyCopy3 <- JohnsFamily
+JohnsFamilyCopy3$children[3] <-
+
+```{r}
+JohnsFamily <-
+  list(
+    name = "John", 
+    age = 35,
+    spouse = list(
+      name = "Mary", 
+      age = 32),
+    children = list(
+      list(
+        name = "Bill", 
+        age = 5),
+      list(
+        name = "Jane", 
+        age = 3)
+    )
+  )
+```
+
+```{r}
+JohnsFamilyCopy3 <- JohnsFamily
+
+JohnsFamilyCopy3$children[3] <- list(name="Lisa",age=0)
+```
+
+
