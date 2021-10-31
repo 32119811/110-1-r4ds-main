@@ -1,0 +1,11 @@
+Exercise 3.2 From concerts_obo,
+
+Retrieve the 3rd and 5th concert observations and bind the result value with an object name concerts_sampled.
+
+For the second concert, what are its first show’s time and location? Retrieve the information and bind the value with firstShowInfo.
+
+```{r}
+concerts_sampled <- concerts_obo[c(3,5)]
+
+firstShowInfo <- concerts_obo[[2]][["showInfo"]][[1]][c("time","location")]
+```
