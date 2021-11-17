@@ -1,0 +1,18 @@
+```{r}
+customerExperience <- c('very happy','very happy','satisfied','satisfied','satisfied','very happy','bad','bad','satisfied','satisfied','bad','happy','happy','very happy','happy','happy','satisfied','very happy','very happy','satisfied','satisfied','very happy','satisfied','bad','very happy','very bad','very happy','bad','bad','very bad')
+```
+
+```{r}
+customerExperience_ftc <- factor(customerExperience)
+levels(customerExperience_ftc)
+```
+
+
+```{r}
+customerExperience_ftc_levelsSetup <- factor(customerExperience,levels=c('very bad','bad','satisfied','happy','very happy'),ordered=T)
+```
+
+```{r}
+customerExperience_ftc_levelsSetup
+```
+
