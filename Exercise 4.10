@@ -1,0 +1,13 @@
+Exercise 4.10 How many dead bodies in johnDoe have age upper limit (年齡範圍上限) equal to 0?
+```{r}
+johnDoe_equal_zero <- johnDoe[["data"]][["年齡範圍上限"]] =="0"
+```
+
+```{r}
+print(johnDoe_equal_zero)
+```
+
+```{r}
+sum(johnDoe_equal_zero)
+```
+
