@@ -1,0 +1,42 @@
+---
+title: "Untitled"
+output: html_document
+---
+Exercise 4.13 Regarding johnDoe in exercise 1 of Exercise section,
+
+For those whose reported unit (通報機構) is not NA, what are their records? (in other words, construct a reported-unit-not-NA subsample)
+
+For those dead bodies reported (通報機構) by “海巡隊” (use =="海巡隊" here. Ignore other similar unit names), what are their death types (死亡方式描述)? How many bodies in each type?
+
+For those whose death type (死亡方式描述) is 不詳 or 他殺, what are their discovered counties (發現縣市)? How many such bodies in each counties?
+
+
+```{r}
+johnDoe <- list()
+johnDoe$source[[1]] <- "https://www.moj.gov.tw/2204/2771/2773/76135/post"
+johnDoe$source[[2]] <- "https://docs.google.com/spreadsheets/d/1g2AMop133lCAsmdPhsH3lA-tjiY5fkGIqXqwdknwEVk/edit?usp=sharing"
+googlesheets4::read_sheet(
+  johnDoe$source[[2]]
+) -> johnDoe$data
+```
+1.
+```{r}
+report_unit_isnotNA <- !is.na(johnDoe[["data"]][["通報機關名稱"]])
+```
+2.
+
+```{r}
+ pick1 <- johnDoe[["data"]][["通報機關名稱"]]=="海巡隊"
+johnDoe[["data"]][["死亡方式描述"]][pick1]
+table(johnDoe[["data"]][["死亡方式描述"]][pick1])
+```
+3.
+```{r}
+johnDoe[["data"]][["死亡方式描述"]]
+pick2 <- johnDoe[["data"]][["死亡方式描述"]]== "不詳"
+pick3 <- johnDoe[["data"]][["死亡方式描述"]]== "他殺"
+johnDoe[["data"]][["發現縣市"]][pick2 | pick3]
+table(johnDoe[["data"]][["發現縣市"]][pick2 | pick3])
+```
+
+
